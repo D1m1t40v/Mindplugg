@@ -1,0 +1,52 @@
+List > Array
+	Add, Insert > O(1), O(n) if full capacity
+	Remove > O(n)
+	RemoveAt > O(n), O(1) if last index
+	ElementAt > O(1)
+	Contains > O(n)
+
+LinkedList > doubly linked list
+	Add > O(1)
+	Remove > O(n), O(1) with node
+	Contains > O(n)
+
+Stack > array
+	Enqueue > O(1), O(n) if full capacity
+	Dequeue > O(1)
+	Contains > O(n)
+
+Queue > circular buffer
+	Enqueue > O(1), O(n) if full capacity
+	Dequeue > O(1)
+	Contains > O(n)
+
+Dictionary > hashtable with links to array index for collision
+	Add > O(1), O(n) if collision
+	Remove > O(1), O(n) if collision
+	GetValue > O(1), O(n) if collision
+	ContainsValue > O(n)
+
+HashSet > hashtable with links to array index for collision
+	Add > O(1), O(n) if collision
+	Remove > O(1), O(n) if collision
+	GetValue > O(1), O(n) if collision
+
+SortedList > array
+	Add > O(n), O(log n) if last item
+	Remove > O(n), O(log n) if last item
+	RemoveAt > O(n), O(1) if last index
+	Contains > O(log n)
+
+SortedDictionary > red-black tree
+
+ConcurrentQueue > linked list of array
+
+ConcurrentStack > singly linked list
+
+ConcurrentBag > thread local queue
+
+ConcurrentDictionary > fragmented bucket with lock
+
+BlockingCollection > wrapper above IProducerConsumerCollection, ConcurrentQueue by default
+
+ConditionalWeakTable > no strong reference kept on key and value
