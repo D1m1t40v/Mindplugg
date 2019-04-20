@@ -53,10 +53,15 @@ namespace Mingplugg
         {
             CircularBuffer<char> collection = new CircularBuffer<char>(26);
 
-            "azertyuiopqsdfghjklmwxcvbn".AsParallel().ForAll(collection.Add);
-            "azertyuiopqsdfghjklmwxcvbn".AsParallel().ForAll(collection.Add);
+            for (int i = 0; i < 100; ++i)
+            {
+                "azertyuiopqsdfghjklmwxcvbn".AsParallel().ForAll(collection.Add);
+                "azertyuiopqsdfghjklmwxcvbn".AsParallel().ForAll(collection.Add);
 
-            Assert.All(collection, c => Assert.Contains(c, "azertyuiopqsdfghjklmwxcvbn"));
+                Assert.All(collection, c => Assert.Contains(c, "azertyuiopqsdfghjklmwxcvbn"));
+
+                collection.Clear();
+            }
         }
 
         [Fact]
@@ -75,7 +80,7 @@ namespace Mingplugg
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
-            Assert.False(reference.IsAlive);
+            Assert.False(reference.IsAlive, "reference is still alive, switch in Release configuration is this is not expected");
         }
     }
 }
